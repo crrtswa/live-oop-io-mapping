@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.5">
+  <GVL Name="GVL_IO" Id="{53f43ee1-b535-427e-9c3e-5cd19f13a68c}">
+    <Declaration><![CDATA[VAR_GLOBAL
+	
+
+	nullInputChannel : NullDigitalInputChannel;
+	
+	device1 : EL1008;
+	
+	myFanControlDigitalInput : AssignableDigitalInputChannel(nullInputChannel);
+	
+	myFanControl : TwoStateSwitch(myFanControlDigitalInput);
+
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.5">
+  <POU Name="MAIN" Id="{6b9cda75-2e94-42d4-8a7f-4c0c520828d2}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	myDebug : BOOL;
+	ChangeTo1 : BOOL;
+	ChangeTo2 : BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF myFanControl.IsOn THEN
+	myDebug := TRUE;
+ELSE 
+	myDebug := FALSE;
+END_IF
+
+IF ChangeTo1 THEN
+	ChangeTo1 := FALSE;
+	myFanControlDigitalInput.ChangeDigitalInput(device1.GetDigitalInput(0));
+END_IF
+
+IF ChangeTo2 THEN
+	ChangeTo2 := FALSE;
+	myFanControlDigitalInput.ChangeDigitalInput(device1.GetDigitalInput(1));
+END_IF
+]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="2" Count="0" />
+      <LineId Id="6" Count="0" />
+      <LineId Id="8" Count="1" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="14" Count="0" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="17" Count="2" />
+      <LineId Id="16" Count="0" />
+      <LineId Id="25" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

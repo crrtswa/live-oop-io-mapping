@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.5">
+  <POU Name="TwoStateSwitch" Id="{ffe12da9-7ff2-45b0-85a9-aa27eb834c6f}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK TwoStateSwitch
+VAR
+	digitalInput : I_DigitalInput;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="FB_init" Id="{b4d5bf36-0426-48d4-b625-c2cbba624363}">
+      <Declaration><![CDATA[METHOD FB_init : BOOL
+VAR_INPUT
+	bInitRetains : BOOL; // if TRUE, the retain variables are initialized (warm start / cold start)
+	bInCopyCode : BOOL;  // if TRUE, the instance afterwards gets moved into the copy code (online change)
+	DigitalInput : I_DigitalInput;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[this^.digitalInput := DigitalInput;]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="IsOn" Id="{3bd96306-3c08-4246-91c1-4c4c1fbf93c8}">
+      <Declaration><![CDATA[PROPERTY PUBLIC IsOn : BOOL]]></Declaration>
+      <Get Name="Get" Id="{d7869862-2daf-4ab1-9381-c5df95bd2c70}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[IsOn := digitalInput.State;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <LineIds Name="TwoStateSwitch">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="TwoStateSwitch.FB_init">
+      <LineId Id="7" Count="0" />
+    </LineIds>
+    <LineIds Name="TwoStateSwitch.IsOn.Get">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

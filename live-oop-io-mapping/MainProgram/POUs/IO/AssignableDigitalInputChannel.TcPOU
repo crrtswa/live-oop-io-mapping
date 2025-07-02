@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.5">
+  <POU Name="AssignableDigitalInputChannel" Id="{eb1ad725-e598-4dff-a100-d3ce73f1e8fe}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK AssignableDigitalInputChannel implements I_DigitalInput
+VAR
+	digitalInput : I_DigitalInput;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="ChangeDigitalInput" Id="{15e5adc7-09e3-4e13-88e5-1bc6a0bb9f50}">
+      <Declaration><![CDATA[METHOD PUBLIC ChangeDigitalInput
+VAR_INPUT
+	DigitalInput : I_DigitalInput;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF DigitalInput <> 0 THEN
+	THIS^.digitalInput := DigitalInput;
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="FB_init" Id="{fd46711e-df3e-4dfb-bb82-c0f85ccda31a}">
+      <Declaration><![CDATA[METHOD FB_init : BOOL
+VAR_INPUT
+	bInitRetains : BOOL; // if TRUE, the retain variables are initialized (warm start / cold start)
+	bInCopyCode : BOOL;  // if TRUE, the instance afterwards gets moved into the copy code (online change)
+	DigitalInput : I_DigitalInput;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[this^.digitalInput := DigitalInput;]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="State" Id="{214b6653-4e33-4ee3-b621-9d0af44ceaa8}">
+      <Declaration><![CDATA[PROPERTY PUBLIC State : BOOL]]></Declaration>
+      <Get Name="Get" Id="{db02c256-e3dc-41f0-b7bb-dab9bc93ca70}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[State := digitalInput.State;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <LineIds Name="AssignableDigitalInputChannel">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="AssignableDigitalInputChannel.ChangeDigitalInput">
+      <LineId Id="7" Count="0" />
+      <LineId Id="5" Count="0" />
+      <LineId Id="8" Count="0" />
+    </LineIds>
+    <LineIds Name="AssignableDigitalInputChannel.FB_init">
+      <LineId Id="7" Count="0" />
+    </LineIds>
+    <LineIds Name="AssignableDigitalInputChannel.State.Get">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

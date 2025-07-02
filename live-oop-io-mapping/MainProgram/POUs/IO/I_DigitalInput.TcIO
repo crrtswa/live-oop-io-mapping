@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.5">
+  <Itf Name="I_DigitalInput" Id="{c82f3116-0b65-49b8-935b-f6052aa7425a}">
+    <Declaration><![CDATA[INTERFACE I_DigitalInput
+]]></Declaration>
+    <Property Name="State" Id="{7300b579-0868-4226-a0b7-1fba4de47ec4}">
+      <Declaration><![CDATA[PROPERTY PUBLIC State : BOOL]]></Declaration>
+      <Get Name="Get" Id="{b294ea88-a0d7-45b2-bdab-55810acf1b37}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+    </Property>
+  </Itf>
+</TcPlcObject>

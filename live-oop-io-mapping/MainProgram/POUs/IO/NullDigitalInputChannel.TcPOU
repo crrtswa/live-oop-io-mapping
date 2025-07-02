@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.5">
+  <POU Name="NullDigitalInputChannel" Id="{fc2a3217-4cd6-4828-a534-7afe34fef2ce}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK NullDigitalInputChannel implements I_DigitalInput]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Property Name="State" Id="{cb8616eb-5b33-4a93-8aa7-d3f72935650d}">
+      <Declaration><![CDATA[PROPERTY PUBLIC State : BOOL]]></Declaration>
+      <Get Name="Get" Id="{158937ce-e882-48a8-9296-71b4c6edcb23}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[State := FALSE;]]></ST>
+        </Implementation>
+      </Get>
+    </Property>
+    <LineIds Name="NullDigitalInputChannel">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="NullDigitalInputChannel.State.Get">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

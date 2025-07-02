@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.5">
+  <POU Name="EL1008" Id="{0cccfce6-a189-49df-b8cc-400af400ba61}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK EL1008
+VAR
+	Channels : ARRAY [0..7] OF DigitalInputChannel;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="GetDigitalInput" Id="{3b77e96f-55e6-4e9b-9d22-0d3911c37223}">
+      <Declaration><![CDATA[METHOD PUBLIC GetDigitalInput : I_DigitalInput
+VAR_INPUT
+	channelNumber : INT;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[GetDigitalInput := Channels[channelNumber];]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="EL1008">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="EL1008.GetDigitalInput">
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
